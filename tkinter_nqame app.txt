@@ -1,0 +1,33 @@
+import tkinter as tk
+
+def clicked():
+    """Handles button click event and updates the label."""
+
+    name = user_input.get()
+    greeting = "Hello " + name + "!"
+
+    if name:  # Check if name is not empty (more concise than != '')
+        mylabel.config(text=greeting)
+        user_input.delete(0, tk.END)  # Use tk.END for clarity
+    else:
+        mylabel.config(text="Enter your Name!")
+
+# Create the main window
+mw = tk.Tk()  # Use Tk() to create the main window
+mw.title("Hello World! GUI")  # Set a title for the window
+
+# Create the label
+mylabel = tk.Label(mw, text="Enter your name:", font=("Arial", 12))
+mylabel.pack(pady=20)
+
+# Create the input field
+user_input = tk.Entry(mw, width=30, font=("Arial", 12))
+user_input.pack(pady=10, padx=20)
+
+# Create the button
+my_button = tk.Button(mw, text="Say Hello!", padx=10, font=("Arial", 14), command=clicked)
+my_button.pack(padx=50, pady=30)
+
+# Start the main event loop
+mw.mainloop()
+
